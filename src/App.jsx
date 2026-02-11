@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import { MapContainer, TileLayer, Marker, Popup, useMap } from 'react-leaflet'
+import { MapContainer, TileLayer, Marker, Popup, useMap, Polyline } from 'react-leaflet' // Adicionei Polyline
 import { supabase } from './supabaseClient'
 import Admin from './Admin'
 import L from 'leaflet'
@@ -37,15 +37,32 @@ const Fobodromo = [-1.914817, -55.516177];
 
 // --- DADOS DOS BLOCOS ---
 const agendaBlocos = [
-  {
+{
     id: 1,
     nome: "Bloco Vai ou Raxa",
     data: "11/02 - Quarta",
     horario: "18:00",
     local: "Praça de São Francisco",
-    descricao: "'A Terra do Mascarado Fobó'. Abre alas para a folia oficial!",
+    descricao: "Tema: 'A Terra do Mascarado Fobó'. Abre alas para a folia oficial!",
     cor: "#6A0DAD", // Roxo
-    inicio: [-1.898259, -55.514176],
+    inicio: [-1.897890, -55.514952], // Ponto inicial ajustado
+    
+    // 👇 AQUI ESTÁ A ROTA QUE VOCÊ ME MANDOU (JÁ INVERTIDA E PRONTA)
+    rota: [
+      [-1.897890051268547, -55.51495201409074],
+      [-1.8963794653955972, -55.51759555520702],
+      [-1.9020197553515317, -55.517658771347186],
+      [-1.9055291295277215, -55.51765877379913],
+      [-1.90871685676251, -55.51773348130409],
+      [-1.9102102052954422, -55.5177794560187],
+      [-1.9112670357820036, -55.516802493341444],
+      [-1.9129212027463325, -55.51482557878221],
+      [-1.9133284387226723, -55.51432719099701],
+      [-1.9146837535434713, -55.515329475972806],
+      [-1.9154938221696796, -55.51594498433202],
+      [-1.9151278416501611, -55.51639425344561]
+    ],
+    
     itinerario: [
       "Rua Belém", 
       "Av. Prefeito Nelson Souza", 
@@ -208,6 +225,15 @@ export default function App() {
         <Marker position={posicaoTrio} icon={iconeTrio}>
           <Popup>Trio Elétrico Aqui! 🚚🔊</Popup>
         </Marker>
+
+        {/* 👇 AQUI ESTÁ A MÁGICA DA ROTA 👇 */}
+        {blocoAtual.rota && blocoAtual.rota.length > 0 && (
+          <Polyline 
+            positions={blocoAtual.rota} 
+            pathOptions={{ color: blocoAtual.cor, weight: 5, opacity: 0.8 }} 
+          />
+        )}
+        
       </MapContainer>
 
       {/* Card de Informações (Gaveta) */}
