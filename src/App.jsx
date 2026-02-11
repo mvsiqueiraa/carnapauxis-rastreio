@@ -37,17 +37,18 @@ const Fobodromo = [-1.914817, -55.516177];
 
 // --- DADOS DOS BLOCOS ---
 const agendaBlocos = [
-{
+  {
     id: 1,
     nome: "Bloco Vai ou Raxa",
     data: "11/02 - Quarta",
-    horario: "18:00",
-    local: "Praça de São Francisco",
-    descricao: "Tema: 'Mascarado Fobó, o nosso orgulho maior!",
+    horario: "18:00 (Término: 00h)", // Adicionei o término
+    local: "Praça do São Francisco",
+    // 👇 Descrição completa com as atrações
+    descricao: "Trio: Banda Lazer 🚚 | Palco: Banda 220 Wolts 🎸. Abertura oficial do CarnaPauxis 2026!",
     cor: "#6A0DAD", // Roxo
-    inicio: [-1.897890, -55.514952], // Ponto inicial ajustado
+    inicio: [-1.897890, -55.514952],
     
-    // 👇 AQUI ESTÁ A ROTA QUE VOCÊ ME MANDOU (JÁ INVERTIDA E PRONTA)
+    // Rota desenhada (mantida a anterior que bate com as ruas)
     rota: [
       [-1.897890051268547, -55.51495201409074],
       [-1.8963794653955972, -55.51759555520702],
@@ -71,8 +72,8 @@ const agendaBlocos = [
       "Rua Justo Chermont", 
       "Chegada: Fobódromo"
     ]
-  },
-  {
+    },
+    {
     id: 2,
     nome: "Mirim Unidos do Umarizal",
     data: "12/02 - Quinta",
