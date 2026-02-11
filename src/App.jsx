@@ -188,7 +188,10 @@ export default function App() {
 
       {/* Mapa */}
       <MapContainer center={blocoAtual.inicio} zoom={15} zoomControl={false} className="mapa-layout">
-        <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
+        <TileLayer
+  attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>'
+  url="https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png"
+/>
         <FlyToLocation center={blocoAtual.inicio} />
 
         {/* Marcador Saída */}
