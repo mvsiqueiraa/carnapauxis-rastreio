@@ -1,35 +1,179 @@
-/* --- RESET BÁSICO --- */
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 0;
-  text-align: center;
+/* --- FONTE E CORES GERAIS --- */
+@import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600;700&family=Roboto:wght@400;500&display=swap');
+
+:root {
+  --roxo-fundo: #3112AD;
+  --rosa-neon: #ff007f;
+  --verde-neon: #d4ff00;
+  --ciano: #00e5ff;
 }
 
-/* --- ESTILO DO BALÃOZINHO (POPUP) --- */
-/* Isso é seguro e deixa o balão com as cores do cartaz! */
+* { box-sizing: border-box; margin: 0; padding: 0; }
 
-/* O fundo e a borda do balão */
-.leaflet-popup-content-wrapper {
-  background: #2a0a38; /* Roxo Escuro */
-  color: #fff;        /* Texto Branco */
-  border: 2px solid #d4ff00; /* Verde Neon */
-  border-radius: 10px;
-  box-shadow: 0 0 15px rgba(212, 255, 0, 0.4); /* Brilho verde */
-  font-family: sans-serif;
+body {
+  font-family: 'Roboto', sans-serif;
+  background-color: var(--roxo-fundo);
+  overflow-x: hidden; 
 }
 
-/* A setinha embaixo do balão */
-.leaflet-popup-tip {
-  background: #2a0a38; /* Tem que ser da mesma cor do fundo */
-  border: 2px solid #d4ff00;
-  border-top: none;   /* Tira a borda de cima pra não cortar */
-  border-left: none;  /* Tira a borda da esquerda */
+.app-container {
+  position: relative;
+  height: 100dvh; 
+  width: 100vw;
+  display: flex;
 }
 
-/* Título dentro do balão (se você usar <h3> ou <h1>) */
-.leaflet-popup-content h3 {
-  color: #ff007f; /* Rosa Neon */
-  margin-top: 0;
-  margin-bottom: 5px;
+/* --- 1️⃣ SIDEBAR (SÓ APARECE NO PC) --- */
+.sidebar-carnaval {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 320px;
+  height: 100dvh;
+  z-index: 900;
+  background-color: var(--roxo-fundo);
+  background-image: url('/imagem.png');
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  border-right: 4px solid var(--rosa-neon);
+}
+
+/* --- 2️⃣ MAPA (ADAPTÁVEL) --- */
+.mapa-layout {
+  height: 100dvh !important;
+  position: absolute !important;
+  top: 0;
+  z-index: 0;
+  /* NO PC: */
+  left: 320px;
+  width: calc(100% - 320px);
+}
+
+/* --- 3️⃣ HEADER COM BANNER --- */
+.header-carnaval {
+  position: absolute;
+  top: 0;
+  left: 320px;
+  width: calc(100% - 320px);
+  height: 140px;
+  z-index: 1000;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  pointer-events: none;
+}
+
+.banner-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+  -webkit-mask-image: linear-gradient(to bottom, black 85%, transparent 100%);
+  mask-image: linear-gradient(to bottom, black 85%, transparent 100%);
+}
+
+/* --- 4️⃣ ETIQUETA --- */
+.status-pill {
+  position: absolute;
+  top: 150px;
+  left: calc(320px + 50%);
+  transform: translateX(-50%);
+  z-index: 999;
+  background: rgba(255, 255, 255, 0.95);
+  padding: 8px 20px;
+  border-radius: 50px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+  border: 2px solid var(--rosa-neon);
+  pointer-events: auto;
+}
+.status-text { color: var(--roxo-fundo); font-family: 'Fredoka', sans-serif; font-weight: 700; font-size: 0.9rem; text-transform: uppercase; }
+.live-indicator { width: 10px; height: 10px; background-color: #00ff00; border-radius: 50%; animation: pulse 2s infinite; }
+@keyframes pulse { 0% { box-shadow: 0 0 0 0 rgba(0, 255, 0, 0.7); } 70% { box-shadow: 0 0 0 10px rgba(0, 255, 0, 0); } 100% { box-shadow: 0 0 0 0 rgba(0, 255, 0, 0); } }
+
+/* --- 5️⃣ CARD INFO (COM ANIMAÇÃO DE GAVETA) --- */
+.info-card {
+  position: absolute;
+  bottom: 30px;
+  left: 350px; /* PC */
+  width: 380px;
+  max-width: 90%;
+  z-index: 1000;
+  background: white;
+  border-radius: 25px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+  overflow: hidden;
+  transition: transform 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+/* ESTADO FECHADO (PC) */
+.info-card.card-fechado {
+  transform: translateY(calc(100% - 70px));
+}
+
+.card-header { 
+  padding: 15px; 
+  display: flex; 
+  justify-content: space-between; 
+  align-items: center; 
+  color: white; 
+  height: 70px;
+}
+.card-header h2 { font-family: 'Fredoka', sans-serif; font-size: 1.2rem; }
+.nav-btn { background: rgba(255,255,255,0.2); border: none; color: white; border-radius: 50%; width: 35px; height: 35px; cursor: pointer; display: flex; align-items: center; justify-content: center; }
+.card-body { padding: 15px 20px; }
+.info-row { display: flex; align-items: center; margin-bottom: 8px; color: #444; font-size: 0.9rem; }
+.icon { margin-right: 10px; }
+.divider { height: 1px; background: #eee; margin: 10px 0; }
+.itinerario-section h4 { font-family: 'Fredoka', sans-serif; font-size: 1rem; }
+.descricao { font-size: 0.85rem; color: #666; background: #f8f8f8; padding: 10px; border-radius: 10px; border-left: 4px solid #ddd; }
+.footer-dev { position: absolute; bottom: 20px; left: 30px; z-index: 1001; font-size: 0.8rem; font-family: 'Fredoka', sans-serif; color: var(--verde-neon); pointer-events: none; }
+.footer-dev strong { color: #fff; }
+
+/* ========================================= */
+/* 📱 2️⃣ MOBILE RESPONSIVO REAL */
+/* ========================================= */
+@media (max-width: 768px) {
+  
+  .sidebar-carnaval, .footer-dev { 
+    display: none !important; 
+  }
+
+  .mapa-layout {
+    left: 0 !important;
+    width: 100% !important;
+    height: 100dvh !important;
+  }
+
+  .header-carnaval {
+    left: 0;
+    width: 100%;
+    height: 120px;
+  }
+
+  .status-pill {
+    left: 50%;
+    top: 130px;
+    transform: translateX(-50%);
+    padding: 6px 16px;
+    font-size: 0.9rem;
+    width: max-content;
+  }
+
+  .info-card {
+    width: 100%;
+    max-width: 100%;
+    left: 0;
+    bottom: 0;
+    border-radius: 25px 25px 0 0;
+    margin: 0;
+  }
+
+  /* ESTADO FECHADO (MOBILE) */
+  .info-card.card-fechado {
+    transform: translateY(calc(100% - 70px));
+  }
 }
