@@ -43,7 +43,7 @@ const agendaBlocos = [
     data: "11/02 - Quarta",
     horario: "18:00",
     local: "Praça de São Francisco",
-    descricao: "Tema: 'A Terra do Mascarado Fobó'. Abre alas para a folia oficial!",
+    descricao: "Tema: 'Mascarado Fobó, o nosso orgulho maior!",
     cor: "#6A0DAD", // Roxo
     inicio: [-1.897890, -55.514952], // Ponto inicial ajustado
     
@@ -233,7 +233,7 @@ export default function App() {
             pathOptions={{ color: blocoAtual.cor, weight: 5, opacity: 0.8 }} 
           />
         )}
-        
+
       </MapContainer>
 
       {/* Card de Informações (Gaveta) */}
