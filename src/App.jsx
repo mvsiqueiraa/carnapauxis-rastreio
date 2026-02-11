@@ -43,76 +43,83 @@ const agendaBlocos = [
     data: "11/02 - Quarta",
     horario: "18:00",
     local: "Praça de São Francisco",
-    descricao: "Tema: 'A Terra do Mascarado Fobó'. Abre alas para a folia oficial!",
-    cor: "#6A0DAD",
+    descricao: "'A Terra do Mascarado Fobó'. Abre alas para a folia oficial!",
+    cor: "#6A0DAD", // Roxo
     inicio: [-1.898259, -55.514176],
-    itinerario: ["Rua Belém", "Av. Prefeito Nelson Souza", "Rua Dr. Picanço Diniz", "Av. Dom Floriano", "Rua Justo Chermont", "Chegada: Fobódromo"]
+    itinerario: [
+      "Rua Belém", 
+      "Av. Prefeito Nelson Souza", 
+      "Rua Dr. Picanço Diniz", 
+      "Av. Dom Floriano", 
+      "Rua Justo Chermont", 
+      "Chegada: Fobódromo"
+    ]
   },
   {
     id: 2,
     nome: "Mirim Unidos do Umarizal",
     data: "12/02 - Quinta",
-    horario: "17:00",
-    local: "Umarizal",
-    descricao: "Bloco infantil.",
-    cor: "#00CED1", 
-    inicio: Fobodromo, 
-    itinerario: ["Trajeto a definir"]
+    horario: "A definir",
+    local: "A definir",
+    descricao: "Em breve mais informações...",
+    cor: "#00CED1", // Azul Turquesa
+    inicio: Fobodromo, // Ponto padrão para não quebrar o mapa
+    itinerario: ["Aguardando divulgação oficial..."]
   },
   {
     id: 3,
     nome: "Serra da Escama",
     data: "13/02 - Sexta",
-    horario: "18:00",
-    local: "Prainha",
-    descricao: "Bloco tradicional.",
-    cor: "#32CD32", 
+    horario: "A definir",
+    local: "A definir",
+    descricao: "Em breve mais informações...",
+    cor: "#32CD32", // Verde Lima
     inicio: Fobodromo,
-    itinerario: ["Trajeto a definir"]
+    itinerario: ["Aguardando divulgação oficial..."]
   },
   {
     id: 4,
     nome: "Águia Negra",
     data: "14/02 - Sábado",
-    horario: "17:00",
-    local: "Cidade Nova",
-    descricao: "Tradição e elegância.",
-    cor: "#000000", 
+    horario: "A definir",
+    local: "A definir",
+    descricao: "Em breve mais informações...",
+    cor: "#000000", // Preto
     inicio: Fobodromo,
-    itinerario: ["Trajeto a definir"]
+    itinerario: ["Aguardando divulgação oficial..."]
   },
   {
     id: 5,
     nome: "Xupa Osso",
     data: "15/02 - Domingo",
-    horario: "16:00",
-    local: "Centro",
-    descricao: "O mais tradicional!",
-    cor: "#8B0000", 
+    horario: "A definir",
+    local: "A definir",
+    descricao: "Em breve mais informações...",
+    cor: "#8B0000", // Vermelho Escuro
     inicio: Fobodromo,
-    itinerario: ["Trajeto a definir"]
+    itinerario: ["Aguardando divulgação oficial..."]
   },
   {
     id: 6,
     nome: "Unidos do Morro",
     data: "16/02 - Segunda",
-    horario: "17:00",
-    local: "Fátima",
-    descricao: "A força que vem do alto!",
-    cor: "#FFD700", 
+    horario: "A definir",
+    local: "A definir",
+    descricao: "Em breve mais informações...",
+    cor: "#FFD700", // Dourado
     inicio: Fobodromo,
-    itinerario: ["Trajeto a definir"]
+    itinerario: ["Aguardando divulgação oficial..."]
   },
   {
     id: 7,
     nome: "Bloco das Virgens",
     data: "17/02 - Terça",
-    horario: "17:00",
-    local: "Santa Terezinha",
-    descricao: "Encerramento irreverente.",
-    cor: "#FF69B4", 
+    horario: "A definir",
+    local: "A definir",
+    descricao: "Em breve mais informações...",
+    cor: "#FF69B4", // Rosa Choque
     inicio: Fobodromo,
-    itinerario: ["Trajeto a definir"]
+    itinerario: ["Aguardando divulgação oficial..."]
   }
 ];
 
