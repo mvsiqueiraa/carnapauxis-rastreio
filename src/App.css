@@ -1,0 +1,35 @@
+/* --- RESET BÁSICO --- */
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0;
+  text-align: center;
+}
+
+/* --- ESTILO DO BALÃOZINHO (POPUP) --- */
+/* Isso é seguro e deixa o balão com as cores do cartaz! */
+
+/* O fundo e a borda do balão */
+.leaflet-popup-content-wrapper {
+  background: #2a0a38; /* Roxo Escuro */
+  color: #fff;        /* Texto Branco */
+  border: 2px solid #d4ff00; /* Verde Neon */
+  border-radius: 10px;
+  box-shadow: 0 0 15px rgba(212, 255, 0, 0.4); /* Brilho verde */
+  font-family: sans-serif;
+}
+
+/* A setinha embaixo do balão */
+.leaflet-popup-tip {
+  background: #2a0a38; /* Tem que ser da mesma cor do fundo */
+  border: 2px solid #d4ff00;
+  border-top: none;   /* Tira a borda de cima pra não cortar */
+  border-left: none;  /* Tira a borda da esquerda */
+}
+
+/* Título dentro do balão (se você usar <h3> ou <h1>) */
+.leaflet-popup-content h3 {
+  color: #ff007f; /* Rosa Neon */
+  margin-top: 0;
+  margin-bottom: 5px;
+}
