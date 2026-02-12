@@ -21,41 +21,25 @@ body {
   height: 100dvh; 
   width: 100vw;
   display: flex;
+  /* background-color: var(--roxo-fundo); Se quiser um fundo antes do mapa carregar */
 }
 
-/* --- 1️⃣ SIDEBAR (SÓ APARECE NO PC) --- */
-.sidebar-carnaval {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 320px;
-  height: 100dvh;
-  z-index: 900;
-  background-color: var(--roxo-fundo);
-  background-image: url('/imagem.png');
-  background-size: contain;
-  background-position: center;
-  background-repeat: no-repeat;
-  border-right: 4px solid var(--rosa-neon);
-}
-
-/* --- 2️⃣ MAPA (ADAPTÁVEL) --- */
+/* --- 1️⃣ MAPA (OCUPA TUDO AGORA) --- */
 .mapa-layout {
   height: 100dvh !important;
   position: absolute !important;
   top: 0;
+  left: 0;
+  width: 100% !important; /* Ocupa a tela toda */
   z-index: 0;
-  /* NO PC: */
-  left: 320px;
-  width: calc(100% - 320px);
 }
 
-/* --- 3️⃣ HEADER COM BANNER --- */
+/* --- 2️⃣ HEADER COM BANNER --- */
 .header-carnaval {
   position: absolute;
   top: 0;
-  left: 320px;
-  width: calc(100% - 320px);
+  left: 0;
+  width: 100%; /* Ocupa a tela toda */
   height: 140px;
   z-index: 1000;
   display: flex;
@@ -73,11 +57,11 @@ body {
   mask-image: linear-gradient(to bottom, black 85%, transparent 100%);
 }
 
-/* --- 4️⃣ ETIQUETA --- */
+/* --- 3️⃣ ETIQUETA --- */
 .status-pill {
   position: absolute;
   top: 150px;
-  left: calc(320px + 50%);
+  left: 50%; /* Centralizado na tela */
   transform: translateX(-50%);
   z-index: 999;
   background: rgba(255, 255, 255, 0.95);
@@ -94,11 +78,11 @@ body {
 .live-indicator { width: 10px; height: 10px; background-color: #00ff00; border-radius: 50%; animation: pulse 2s infinite; }
 @keyframes pulse { 0% { box-shadow: 0 0 0 0 rgba(0, 255, 0, 0.7); } 70% { box-shadow: 0 0 0 10px rgba(0, 255, 0, 0); } 100% { box-shadow: 0 0 0 0 rgba(0, 255, 0, 0); } }
 
-/* --- 5️⃣ CARD INFO (COM ANIMAÇÃO DE GAVETA) --- */
+/* --- 4️⃣ CARD INFO --- */
 .info-card {
   position: absolute;
   bottom: 30px;
-  left: 350px; /* PC */
+  left: 20px; /* Movido para o canto esquerdo padrão */
   width: 380px;
   max-width: 90%;
   z-index: 1000;
@@ -114,14 +98,7 @@ body {
   transform: translateY(calc(100% - 70px));
 }
 
-.card-header { 
-  padding: 15px; 
-  display: flex; 
-  justify-content: space-between; 
-  align-items: center; 
-  color: white; 
-  height: 70px;
-}
+.card-header { padding: 15px; display: flex; justify-content: space-between; align-items: center; color: white; height: 70px; }
 .card-header h2 { font-family: 'Fredoka', sans-serif; font-size: 1.2rem; }
 .nav-btn { background: rgba(255,255,255,0.2); border: none; color: white; border-radius: 50%; width: 35px; height: 35px; cursor: pointer; display: flex; align-items: center; justify-content: center; }
 .card-body { padding: 15px 20px; }
@@ -130,34 +107,33 @@ body {
 .divider { height: 1px; background: #eee; margin: 10px 0; }
 .itinerario-section h4 { font-family: 'Fredoka', sans-serif; font-size: 1rem; }
 .descricao { font-size: 0.85rem; color: #666; background: #f8f8f8; padding: 10px; border-radius: 10px; border-left: 4px solid #ddd; }
-.footer-dev { position: absolute; bottom: 20px; left: 30px; z-index: 1001; font-size: 0.8rem; font-family: 'Fredoka', sans-serif; color: var(--verde-neon); pointer-events: none; }
+
+/* --- 5️⃣ RODAPÉ DESENVOLVEDOR --- */
+.footer-dev {
+  position: absolute;
+  bottom: 10px;
+  left: 20px;
+  z-index: 1001;
+  font-size: 0.8rem;
+  font-family: 'Fredoka', sans-serif;
+  color: var(--verde-neon);
+  pointer-events: none;
+  /* Adicionei uma sombra para ler melhor em cima do mapa */
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.8);
+}
 .footer-dev strong { color: #fff; }
 
 /* ========================================= */
-/* 📱 2️⃣ MOBILE RESPONSIVO REAL */
+/* 📱 MOBILE RESPONSIVO */
 /* ========================================= */
 @media (max-width: 768px) {
   
-  .sidebar-carnaval, .footer-dev { 
-    display: none !important; 
-  }
-
-  .mapa-layout {
-    left: 0 !important;
-    width: 100% !important;
-    height: 100dvh !important;
-  }
-
   .header-carnaval {
-    left: 0;
-    width: 100%;
     height: 120px;
   }
 
   .status-pill {
-    left: 50%;
     top: 130px;
-    transform: translateX(-50%);
     padding: 6px 16px;
     font-size: 0.9rem;
     width: max-content;
@@ -171,9 +147,15 @@ body {
     border-radius: 25px 25px 0 0;
     margin: 0;
   }
-
-  /* ESTADO FECHADO (MOBILE) */
   .info-card.card-fechado {
     transform: translateY(calc(100% - 70px));
+  }
+
+  /* Ajuste do rodapé no celular */
+  .footer-dev {
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 75px; /* Fica acima do card fechado */
+    white-space: nowrap;
   }
 }
