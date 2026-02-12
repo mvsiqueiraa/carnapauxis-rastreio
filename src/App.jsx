@@ -62,7 +62,7 @@ const agendaBlocos = [
     id: 2,
     nome: "Mirim Unidos do Umarizal",
     data: "12/02 - Quinta",
-    horario: "18:00 (Término: 00h)",
+    horario: "18:00 (Término: 23h)",
     local: "Canto do 'Seu Augusto' (Umarizal)",
     descricao: "Trio: Banda 220 Wolts 🚚 | Palco: Banda Brisa 🎸.",
     cor: "#00CED1", 
