@@ -159,3 +159,59 @@ body {
     white-space: nowrap;
   }
 }
+
+/* --- 🔔 POP-UP DE AVISO --- */
+.popup-aviso {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  width: 300px;
+  background: rgba(0, 0, 0, 0.85); /* Fundo preto meio transparente */
+  color: white;
+  padding: 15px;
+  border-radius: 15px;
+  z-index: 2000; /* Fica em cima de tudo (mapa e header) */
+  box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+  border: 1px solid var(--verde-neon); /* Borda verde neon pra chamar atenção */
+  animation: slideIn 0.5s ease-out;
+  font-family: 'Roboto', sans-serif;
+  font-size: 0.9rem;
+}
+
+.popup-aviso p {
+  margin-bottom: 8px;
+  line-height: 1.4;
+}
+
+.popup-aviso strong {
+  color: var(--verde-neon);
+}
+
+.fechar-aviso {
+  position: absolute;
+  top: 5px;
+  right: 10px;
+  background: none;
+  border: none;
+  color: #aaa;
+  font-size: 1.2rem;
+  cursor: pointer;
+}
+.fechar-aviso:hover {
+  color: white;
+}
+
+/* Animação de entrada */
+@keyframes slideIn {
+  from { transform: translateX(100%); opacity: 0; }
+  to { transform: translateX(0); opacity: 1; }
+}
+
+/* Ajuste para celular */
+@media (max-width: 768px) {
+  .popup-aviso {
+    top: 10px; /* Mais pra cima no celular */
+    right: 5%; /* Centralizado */
+    width: 90%;
+  }
+}

@@ -5,11 +5,9 @@ export default function Admin() {
   const [status, setStatus] = useState('Parado')
   const [coords, setCoords] = useState({ lat: 0, lng: 0 })
 
-  // Transformei em ASYNC para poder usar o 'await' do Wake Lock
   const comecarTransmissao = async () => {
     
-    // --- NOVO: BLOQUEIO DE TELA (WAKE LOCK) ---
-    // Isso impede que a tela apague e o GPS pare de funcionar
+    // --- BLOQUEIO DE TELA (WAKE LOCK) ---
     if ('wakeLock' in navigator) {
       try {
         await navigator.wakeLock.request('screen');

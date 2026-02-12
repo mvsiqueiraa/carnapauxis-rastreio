@@ -8,8 +8,6 @@ import './App.css'
 import { FaCalendarAlt, FaClock, FaMapMarkerAlt, FaInfoCircle, FaChevronRight, FaChevronLeft, FaRoute, FaChevronDown, FaChevronUp } from 'react-icons/fa'
 
 // --- ÍCONES PERSONALIZADOS ---
-
-// 1. O TRIO ELÉTRICO
 const iconeTrio = new L.Icon({
   iconUrl: '/trio.png',
   iconSize: [60, 60],
@@ -18,14 +16,12 @@ const iconeTrio = new L.Icon({
   className: 'icone-pulsante'
 });
 
-// 2. CONCENTRAÇÃO
 const iconeConcentracao = new L.Icon({
   iconUrl: '/saida.png',
   iconSize: [35, 35],
   iconAnchor: [17, 35],
 });
 
-// 3. CHEGADA NO FOBÓDROMO
 const iconeChegada = new L.Icon({
   iconUrl: '/mascarado.png',
   iconSize: [50, 50],
@@ -44,9 +40,8 @@ const agendaBlocos = [
     horario: "18:00 (Término: 00h)",
     local: "Praça do São Francisco",
     descricao: "Trio: Banda Lazer 🚚 | Palco: Banda 220 Wolts 🎸. Abertura oficial!",
-    cor: "#6A0DAD", // Roxo
+    cor: "#6A0DAD", 
     inicio: [-1.897890, -55.514952],
-    // Rota desenhada (Essa nós já temos!)
     rota: [
       [-1.897890051268547, -55.51495201409074],
       [-1.8963794653955972, -55.51759555520702],
@@ -70,9 +65,18 @@ const agendaBlocos = [
     horario: "17:00 (Término: 00h)",
     local: "Canto do 'Seu Augusto' (Umarizal)",
     descricao: "Trio: Banda 220 Wolts 🚚 | Palco: Banda Brisa 🎸.",
-    cor: "#00CED1", // Azul Turquesa
-    inicio: Fobodromo, // (Ajustar GPS se tiver)
-    rota: [],
+    cor: "#00CED1", 
+    inicio: [-1.9104645301684684, -55.51221132768701], 
+    rota: [
+      [-1.9104645301684684, -55.51221132768701],
+      [-1.9116737572955174, -55.51308291447795],
+      [-1.9127454407317686, -55.51160924528918],
+      [-1.9143833066432308, -55.51285808953665],
+      [-1.914989435667124, -55.512108330155854],
+      [-1.9172720090471103, -55.51367976622545],
+      [-1.9151723562614507, -55.51632219086294],
+      [-1.9150825435302608, -55.51625175775922]
+    ],
     itinerario: ["Av. Dom Floriano", "Rua Marechal Rondon", "Trav. Rui Barbosa", "Rua Dr. Picanço Diniz", "Trav. Dr. Machado", "Rua Justo Chermont", "Chegada: Fobódromo"]
   },
   {
@@ -82,8 +86,8 @@ const agendaBlocos = [
     horario: "18:00 (Término: 03h)",
     local: "Bar do 'Toca'",
     descricao: "Trio: Banda Show Energia 🚚 | Palco: Neto Moreno e Banda Elite 🎸.",
-    cor: "#32CD32", // Verde Lima
-    inicio: Fobodromo, // (Ajustar GPS se tiver)
+    cor: "#32CD32", 
+    inicio: Fobodromo, 
     rota: [],
     itinerario: ["Trav. Rui Barbosa", "Rua Marechal Rondon", "Av. Dom Floriano", "Trav. Antônio Fernandes", "Av. Lauro Sodré", "Rua Dr. Picanço Diniz", "Trav. Dr. Machado", "Rua Justo Chermont", "Chegada: Fobódromo"]
   },
@@ -94,8 +98,8 @@ const agendaBlocos = [
     horario: "17:00 (Término: 03h)",
     local: "Sede do Bloco (Cidade Nova)",
     descricao: "Trios: Banda Brisa e Banda Lazer 🚚 | Palcos: 220 Wolts e Neto Moreno 🎸.",
-    cor: "#000000", // Preto
-    inicio: Fobodromo, // (Ajustar GPS se tiver)
+    cor: "#000000", 
+    inicio: Fobodromo, 
     rota: [],
     itinerario: ["Rua Pedro Álvares Cabral", "Trav. Lauro Sodré", "Rua Dr. Picanço Diniz", "Trav. Dr. Machado", "Rua Justo Chermont", "Chegada: Fobódromo"]
   },
@@ -106,8 +110,8 @@ const agendaBlocos = [
     horario: "16:00 (Término: 03h)",
     local: "Praça de Sant’Ana",
     descricao: "Trios: 220 Wolts e Show Energia 🚚 | Palcos: Banda Lazer e Neto Moreno 🎸.",
-    cor: "#8B0000", // Vermelho
-    inicio: Fobodromo, // (Ajustar GPS se tiver)
+    cor: "#8B0000", 
+    inicio: Fobodromo, 
     rota: [],
     itinerario: ["Rua Marcos Rodrigues de Souza", "Trav. Bom Jesus", "Rua Dep. Raimundo Chaves 'Bacuri'", "Trav. Dr. Machado", "Rua Dr. Picanço Diniz", "Trav. Rui Barbosa", "Rua Marechal Rondon", "Av. Dom Floriano", "Trav. Antônio Fernandes", "Trav. Liberdade", "Rua Antônio Brito de Sousa", "Trav. Bom Jesus", "Rua Justo Chermont", "Chegada: Fobódromo"]
   },
@@ -118,8 +122,8 @@ const agendaBlocos = [
     horario: "17:00 (Término: 03h)",
     local: "Sede do Bloco (Fátima)",
     descricao: "Trios: 220 Wolts e Banda Lazer 🚚 | Palcos: Show Energia e Banda Lazer 🎸.",
-    cor: "#FFD700", // Dourado
-    inicio: Fobodromo, // (Ajustar GPS se tiver)
+    cor: "#FFD700", 
+    inicio: Fobodromo, 
     rota: [],
     itinerario: ["Rua Tiradentes", "Av. Prefeito Nelson Souza", "Rua Dr. Picanço Diniz", "Trav. Dr. Machado", "Rua Justo Chermont", "Chegada: Fobódromo"]
   },
@@ -130,12 +134,38 @@ const agendaBlocos = [
     horario: "17:00 (Término: 03h)",
     local: "Praça de Santa Terezinha",
     descricao: "Trios: Neto Moreno e Banda Brisa 🚚 | Palcos: Banda Lazer e Show Energia 🎸.",
-    cor: "#FF69B4", // Rosa
-    inicio: Fobodromo, // (Ajustar GPS se tiver)
+    cor: "#FF69B4", 
+    inicio: Fobodromo, 
     rota: [],
     itinerario: ["Rua Antônio Brito de Souza", "Trav. Felipe Bentes", "Rua Dr. Picanço Diniz", "Trav. Dr. Machado", "Rua Justo Chermont", "Chegada: Fobódromo"]
   }
 ];
+
+// --- FUNÇÃO PARA ACHAR O BLOCO DE HOJE ---
+const encontrarBlocoDoDia = () => {
+  const hoje = new Date();
+  const dia = hoje.getDate();
+  const mes = hoje.getMonth() + 1; // Janeiro é 0, Fevereiro é 1, então somamos +1
+
+  // Mapeamento: Dia -> ID do Bloco
+  const mapaDatas = {
+    11: 1, // Vai ou Raxa
+    12: 2, // Mirim
+    13: 3, // Serra
+    14: 4, // Águia
+    15: 5, // Xupa Osso
+    16: 6, // Morro
+    17: 7  // Virgens
+  };
+
+  // Se for Fevereiro e o dia estiver no mapa, retorna o bloco certo
+  if (mes === 2 && mapaDatas[dia]) {
+    return agendaBlocos.find(b => b.id === mapaDatas[dia]) || agendaBlocos[0];
+  }
+
+  // Se não for dia de carnaval, retorna o primeiro (Vai ou Raxa)
+  return agendaBlocos[0];
+};
 
 function FlyToLocation({ center }) {
   const map = useMap();
@@ -145,9 +175,21 @@ function FlyToLocation({ center }) {
 
 export default function App() {
   const [isAdmin, setIsAdmin] = useState(window.location.hash === '#admin-mv')
-  const [blocoAtual, setBlocoAtual] = useState(agendaBlocos[0]) 
+  
+  // 🆕 INICIA COM O BLOCO DO DIA (AUTOMÁTICO)
+  const [blocoAtual, setBlocoAtual] = useState(encontrarBlocoDoDia()) 
+  
   const [posicaoTrio, setPosicaoTrio] = useState(Fobodromo)
   const [cardAberto, setCardAberto] = useState(true)
+  const [avisoAberto, setAvisoAberto] = useState(true)
+
+  // Timer para fechar o aviso
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setAvisoAberto(false);
+    }, 8000); 
+    return () => clearTimeout(timer);
+  }, []);
 
   useEffect(() => {
     const checkAdmin = () => {
@@ -198,7 +240,15 @@ export default function App() {
 
   return (
     <div className="app-container">
-      {/* Rodapé */}
+      
+      {avisoAberto && (
+        <div className="popup-aviso">
+          <button className="fechar-aviso" onClick={() => setAvisoAberto(false)}>✖</button>
+          <p>🔄 Se o trio não mexer, <strong>atualize a página</strong> para ver em tempo real.</p>
+          <p>🌐 Funciona melhor no navegador <strong>Google Chrome</strong>.</p>
+        </div>
+      )}
+
       <div className="footer-dev">
         Desenvolvido por <strong>mvsiqueira</strong>
       </div>
