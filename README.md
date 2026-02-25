@@ -1,16 +1,53 @@
-# React + Vite
+# 🚚 Onde o Bloco Tá? - CarnaPauxis 2026
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+![Badge Status](http://img.shields.io/static/v1?label=STATUS&message=CONCLUÍDO&color=GREEN&style=for-the-badge)
+![React](https://img.shields.io/badge/react-%2320232a.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB)
+![Supabase](https://img.shields.io/badge/Supabase-3ECF8E?style=for-the-badge&logo=supabase&logoColor=white)
+![Leaflet](https://img.shields.io/badge/Leaflet-199900?style=for-the-badge&logo=Leaflet&logoColor=white)
 
-Currently, two official plugins are available:
+> **"Tecnologia conectando tradição e folia na Amazônia."**
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🏆 Resultados e Impacto
+Projeto desenvolvido e utilizado durante o **CarnaPauxis 2026** (Carnaval de Óbidos/PA). Em apenas 7 dias de evento, a aplicação alcançou:
 
-## React Compiler
+- 🚀 **+76.000 Acessos** únicos.
+- 🗺️ Monitoramento em tempo real de **7 blocos oficiais**.
+- 📱 Alta estabilidade com picos de usuários simultâneos.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+---
 
-## Expanding the ESLint configuration
+## 📱 Sobre o Projeto
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+O **Onde o Bloco Tá?** é uma aplicação web (PWA) de utilidade pública. O objetivo era resolver um problema real: localizar o trio elétrico e o trajeto dos blocos em meio à multidão.
+
+O sistema permite que qualquer usuário acesse a localização exata do trio (GPS), visualize o trajeto desenhado no mapa e confira a programação do dia, identificando automaticamente qual bloco está desfilando.
+
+### ✨ Funcionalidades
+
+* **Rastreamento em Tempo Real:** Localização GPS via Supabase Realtime.
+* **Mapas Interativos:** Rotas oficiais desenhadas (Polylines) sobre o mapa da cidade.
+* **Lógica de Data:** O app identifica o dia atual e carrega o bloco correspondente automaticamente.
+* **Painel Administrativo:** Interface restrita com *Wake Lock API* para impedir que a tela apague durante a transmissão do GPS.
+
+---
+
+## 📸 Screenshots
+
+| Visão do Folião (Mobile) | Painel Admin (GPS) |
+|:-------------------------:|:--------------------:|
+| <img src="./assets/print-mobile.jpg" width="300" alt="Tela do Mapa"> | <img src="./assets/print-admin.jpg" width="300" alt="Painel Admin"> |
+
+---
+
+## 🛠️ Stack Tecnológica
+
+- **Frontend:** [React.js](https://reactjs.org/) + [Vite](https://vitejs.dev/)
+- **Mapas:** [React Leaflet](https://react-leaflet.js.org/) + OpenStreetMap
+- **Backend & Realtime:** [Supabase](https://supabase.com/) (PostgreSQL)
+- **Deploy:** [Vercel](https://vercel.com/)
+
+---
+
+## ⚙️ Link para entrar no site
+
+https://carnapauxis-rastreio.vercel.app/#
